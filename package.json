@@ -1,10 +1,10 @@
 {
-  "name": "locals-2.0",
+  "name": "views",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --mode=development & nodemon server.js",
+    "start": "webpack -w & nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
@@ -36,10 +36,12 @@
     "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-rangeslider": "^2.2.0",
     "react-router-dom": "^4.3.1",
     "serialize-javascript": "^1.5.0"
   }
