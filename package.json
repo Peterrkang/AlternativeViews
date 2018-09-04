@@ -1,10 +1,10 @@
 {
-  "name": "views",
+  "name": "locals-2.0",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack -w & nodemon server.js",
+    "start": "webpack --mode=development & nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "babel": {
@@ -18,7 +18,7 @@
       "babel-plugin-syntax-dynamic-import"
     ]
   },
-  "author": "",
+  "author": "Peterrkang",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.26.3",
