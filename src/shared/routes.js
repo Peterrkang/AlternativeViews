@@ -1,5 +1,6 @@
 import Home from "./Home";
-import Test from "./Test";
+import Topic from "./Topic";
+import { fetchNews } from "./api";
 
 const routes = [
   {
@@ -8,9 +9,9 @@ const routes = [
     component: Home
   },
   {
-    path: "/test",
-    exact: true,
-    component: Test
+    path: "/topics",
+    component: Topic,
+    fetchInitialData: (path = "") => fetchNews(path.split("/").pop())
   }
 ];
 

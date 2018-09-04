@@ -34,6 +34,7 @@ app.get("*", (req, res, next) => {
         `<!DOCTYPE html>
         <html>
             <head>
+                <link rel="stylesheet" href="https://unpkg.com/react-rangeslider/umd/rangeslider.min.css" />
                 <title>Views</title>
                 <script src="/bundle.js" defer></script>
                 <script>window.__INITIAL_DATA__ = ${serialize(data)}</script>
