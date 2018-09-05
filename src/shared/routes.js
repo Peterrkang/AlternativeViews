@@ -9,7 +9,7 @@ const routes = [
     component: Home
   },
   {
-    path: "/topics",
+    path: "/topics/:name",
     component: Topic,
     fetchInitialData: (path = "") => fetchNews(path.split("/").pop())
   }

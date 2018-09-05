@@ -10,16 +10,7 @@ var browserConfig = {
     publicPath: "/"
   },
   module: {
-    rules: [
-      {
-        test: /\.module\.css$/,
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader", options: { modules: true, camelCase: true } }
-        ]
-      },
-      { test: /\.(js)$/, use: "babel-loader" }
-    ]
+    rules: [{ test: /\.(js)$/, use: "babel-loader" }]
   },
   plugins: [
     new webpack.DefinePlugin({
