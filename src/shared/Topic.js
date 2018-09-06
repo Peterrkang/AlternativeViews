@@ -44,10 +44,9 @@ class Topic extends Component {
 
   render() {
     const { news, loading, value } = this.state;
-    if (loading === true) {
-      return <h1>Loading...</h1>;
-    }
-    return (
+    return loading === true ? (
+      <h1>Loading...</h1>
+    ) : (
       <React.Fragment>
         <Carousel articles={news.articles} value={value} />
         <HorizontalSlider
