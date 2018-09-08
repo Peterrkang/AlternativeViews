@@ -1,6 +1,7 @@
 var path = require("path");
 var webpack = require("webpack");
 var nodeExternals = require("webpack-node-externals");
+var NodemonPlugin = require("nodemon-webpack-plugin");
 
 var browserConfig = {
   entry: "./src/browser/index.js",
@@ -32,6 +33,7 @@ var serverConfig = {
     rules: [{ test: /\.(js)$/, use: "babel-loader" }]
   },
   plugins: [
+    new NodemonPlugin(),
     new webpack.DefinePlugin({
       __isBrowser__: "false"
     })

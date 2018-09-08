@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HorizontalSlider from "./RangeSlider";
+import { HorizontalSlider } from "./RangeSlider";
 import { Slide as Carousel } from "./Carousel";
 
 class Topic extends Component {
@@ -44,7 +44,7 @@ class Topic extends Component {
 
   render() {
     const { news, loading, value } = this.state;
-    return loading === true ? (
+    return loading ? (
       <h1>Loading...</h1>
     ) : (
       <React.Fragment>
