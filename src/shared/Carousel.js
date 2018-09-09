@@ -5,7 +5,7 @@ export const Slide = ({ articles }) => {
   return articles.map((article, index) => (
     <div key={index}>
       <img src={article.urlToImage} />
-      <h2>{article.urlTitle}</h2>
+      <h2>{article.title}</h2>
       <p>{article.description}</p>
       <a href={article.url}>Read More..</a>
     </div>
@@ -13,5 +13,13 @@ export const Slide = ({ articles }) => {
 };
 
 Slide.propTypes = {
-  articles: PropTypes.object.isRequired
+  articles: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
+      urlToImage: PropTypes.string.isRequired
+    })
+  ),
+  value: PropTypes.number.isRequired
 };
