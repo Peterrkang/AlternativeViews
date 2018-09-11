@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { HorizontalSlider } from "./RangeSlider";
-import { Slide as Carousel } from "./Carousel";
+import Carousel from "./Carousel";
 
 class Topic extends Component {
   constructor(props) {
@@ -47,14 +47,14 @@ class Topic extends Component {
     return loading ? (
       <h1>Loading...</h1>
     ) : (
-      <React.Fragment>
-        <Carousel articles={news.articles} value={value} />
-        <HorizontalSlider
-          value={value}
-          handleValueChange={this.handleValueChange}
-        />
-      </React.Fragment>
-    );
+        <React.Fragment>
+          <Carousel articles={news.articles} value={value} />
+          <HorizontalSlider
+            value={value}
+            handleValueChange={this.handleValueChange}
+          />
+        </React.Fragment>
+      );
   }
 }
 

@@ -8,7 +8,7 @@ class ContextProvider extends React.Component {
   };
 
   getChildContext() {
-    return { ...this.props.context };
+    return { ...this.props.cssContext };
   }
 
   render() {

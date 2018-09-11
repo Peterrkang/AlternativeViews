@@ -25,13 +25,14 @@ app.get("*", (req, res, next) => {
   promise
     .then(data => {
       const css = new Set();
-      const context = {
+      const cssContext = {
         insertCss: (...styles) =>
           styles.forEach(style => css.add(style._getCss()))
       };
+      const context = { data }
       const markup = renderToString(
-        <StaticRouter location={req.url}>
-          <ContextProvider context={context}>
+        <StaticRouter location={req.url} context={context}>
+          <ContextProvider cssContext={cssContext}>
             <App />
           </ContextProvider>
         </StaticRouter>
