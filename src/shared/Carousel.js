@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-export const Slide = ({ articles }) => {
+const Slide = ({ articles }) => {
   return articles.map((article, index) => (
     <div key={index}>
       <img src={article.urlToImage} />
@@ -23,3 +23,5 @@ Slide.propTypes = {
   ),
   value: PropTypes.number.isRequired
 };
+
+export default Slide;

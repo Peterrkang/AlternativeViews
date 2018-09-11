@@ -11,7 +11,16 @@ var browserConfig = {
     publicPath: "/"
   },
   module: {
-    rules: [{ test: /\.(js)$/, use: "babel-loader" }]
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          "isomorphic-style-loader",
+          { loader: 'css-loader', options: { modules: true, camelCase: true } }
+        ]
+      },
+      { test: /\.(js)$/, use: "babel-loader" }
+    ]
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -30,7 +39,16 @@ var serverConfig = {
     publicPath: "/"
   },
   module: {
-    rules: [{ test: /\.(js)$/, use: "babel-loader" }]
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          "isomorphic-style-loader",
+          { loader: 'css-loader', options: { modules: true, camelCase: true } }
+        ]
+      },
+      { test: /\.(js)$/, use: "babel-loader" }
+    ]
   },
   plugins: [
     new NodemonPlugin(),

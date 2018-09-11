@@ -1,11 +1,20 @@
 import React from "react";
 import { hydrate } from "react-dom";
-import App from "../shared/App";
 import { BrowserRouter } from "react-router-dom";
+import ContextProvider from "../shared/ContextProvider";
+
+const context = {
+  insertCss: (...styles) => {
+    const removeCss = styles.map(x => x._insertCss());
+    return () => {
+      removeCss.forEach(f => f());
+    };
+  }
+};
 
 hydrate(
   <BrowserRouter>
-    <App data={window.__INITIAL_DATA__} />
+    <ContextProvider context={context} />
   </BrowserRouter>,
   document.getElementById("app")
 );

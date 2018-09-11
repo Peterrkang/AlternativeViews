@@ -7,6 +7,7 @@ import { matchPath, StaticRouter } from "react-router-dom";
 
 import App from "../shared/App";
 import routes from "../shared/routes";
+import ContextProvider from "../shared/ContextProvider";
 
 const app = express();
 
@@ -23,10 +24,16 @@ app.get("*", (req, res, next) => {
 
   promise
     .then(data => {
-      const context = { data };
+      const css = new Set();
+      const context = {
+        insertCss: (...styles) =>
+          styles.forEach(style => css.add(style._getCss()))
+      };
       const markup = renderToString(
-        <StaticRouter location={req.url} context={context}>
-          <App />
+        <StaticRouter location={req.url}>
+          <ContextProvider context={context}>
+            <App />
+          </ContextProvider>
         </StaticRouter>
       );
 
@@ -38,6 +45,7 @@ app.get("*", (req, res, next) => {
                 <title>Views</title>
                 <script src="/bundle.js" defer></script>
                 <script>window.__INITIAL_DATA__ = ${serialize(data)}</script>
+                <style type="text/css">${[...css].join("")}</style>
             </head>
             <body>
                 <div id='app'>${markup}</div>
