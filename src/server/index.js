@@ -29,7 +29,7 @@ app.get("*", (req, res, next) => {
         insertCss: (...styles) =>
           styles.forEach(style => css.add(style._getCss()))
       };
-      const context = { data }
+      const context = { data };
       const markup = renderToString(
         <StaticRouter location={req.url} context={context}>
           <ContextProvider cssContext={cssContext}>
@@ -42,13 +42,15 @@ app.get("*", (req, res, next) => {
         `<!DOCTYPE html>
         <html>
             <head>
-                <link rel="stylesheet" href="https://unpkg.com/react-rangeslider/umd/rangeslider.min.css" />
                 <title>Views</title>
+                <link rel="stylesheet" href="https://unpkg.com/react-rangeslider/umd/rangeslider.min.css" />
+                <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
+                <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+            </head>
+            <body>
                 <script src="/bundle.js" defer></script>
                 <script>window.__INITIAL_DATA__ = ${serialize(data)}</script>
                 <style type="text/css">${[...css].join("")}</style>
-            </head>
-            <body>
                 <div id='app'>${markup}</div>
             </body>
         </html>`

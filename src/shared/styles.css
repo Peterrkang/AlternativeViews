@@ -1,3 +1,31 @@
 .home {
   color: red;
 }
+
+.slick-slider {
+  overflow-x: hidden;
+}
+
+.slick-next:before {
+  right: 15px !important;
+}
+
+.slick-prev:before {
+  left: 15px !important;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: red;
+}
+
+.article {
+  display: flex !important;
+  justify-content: center;
+  text-align: center;
+}
+
+.article-img {
+  width: 70%;
+  height: 400px;
+}

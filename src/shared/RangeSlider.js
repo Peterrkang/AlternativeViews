@@ -1,6 +1,9 @@
 import React from "react";
 import Slider from "react-rangeslider";
 import PropTypes from "prop-types";
+import withStyles from "isomorphic-style-loader/lib/withStyles";
+
+import styles from "./styles.css";
 
 export const HorizontalSlider = props => {
   const labels = {
@@ -25,3 +28,5 @@ HorizontalSlider.propTypes = {
   value: PropTypes.number.isRequired,
   handleValueChange: PropTypes.func.isRequired
 };
+
+export default withStyles(styles)(HorizontalSlider);

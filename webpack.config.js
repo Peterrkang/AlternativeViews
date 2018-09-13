@@ -16,7 +16,10 @@ var browserConfig = {
         test: /\.css$/,
         use: [
           "isomorphic-style-loader",
-          { loader: 'css-loader', options: { modules: true, camelCase: true } }
+          {
+            loader: "css-loader",
+            options: { modules: true, camelCase: true, allowMultiple: true }
+          }
         ]
       },
       { test: /\.(js)$/, use: "babel-loader" }
@@ -44,7 +47,10 @@ var serverConfig = {
         test: /\.css$/,
         use: [
           "isomorphic-style-loader",
-          { loader: 'css-loader', options: { modules: true, camelCase: true } }
+          {
+            loader: "css-loader",
+            options: { modules: true, camelCase: true, allowMultiple: true }
+          }
         ]
       },
       { test: /\.(js)$/, use: "babel-loader" }
